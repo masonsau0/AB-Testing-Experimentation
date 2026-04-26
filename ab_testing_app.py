@@ -37,6 +37,52 @@ st.caption(
     "reduction."
 )
 
+with st.expander("How to use this app", expanded=False):
+    st.markdown("""
+**What this app does in plain English.**
+Companies regularly run experiments to test changes — like "does a
+simpler checkout button increase sales?" They show version A to half
+the users and version B to the other half, then compare the results.
+This app does the math behind those experiments: deciding how many
+users you need, checking the data is clean, computing whether the
+results are real or random luck, and adjusting for the fact that you
+tested multiple things at once.
+
+**The three tabs.**
+
+**1. Sample-size design** — *use this BEFORE running an experiment.*
+Tells you how many users you need to detect a real difference. Move
+the sliders to match your situation:
+- **Baseline conversion rate** — your current success rate (e.g. 15 %
+  of visitors check out today).
+- **Minimum detectable effect** — the smallest improvement you care
+  about (e.g. 10 % means going from 15 % to 16.5 %).
+- **Significance level α** — how strict you are about avoiding false
+  positives. 0.05 (5 %) is the common default.
+- **Statistical power** — how reliable you want the test to be at
+  finding a real effect. 0.80 (80 %) is the common default.
+
+**2. Experiment analysis** — *use this AFTER your experiment runs.*
+Upload a CSV or use the built-in example data. The app shows:
+- **SRM check** — was the user split actually 50/50? If not, the
+  experiment is broken and results aren't trustworthy.
+- **Per-metric tests** — for each thing you measured (conversions,
+  revenue, time on page), did A vs B differ enough to be statistically
+  significant? Look at the **p-value column**: under 0.05 generally
+  means "real effect, not random luck."
+- **Multiple-comparison correction** — when you test multiple things,
+  random luck eventually gives you a false hit. Bonferroni and
+  Benjamini-Hochberg both adjust for this — the **rejected** column
+  tells you which results survive after correction.
+
+**3. CUPED reanalysis** — an advanced trick to make experiments more
+sensitive. Don't worry about this unless you're going deep.
+
+**Try this.** Open Tab 2, accept the bundled data, and look at the
+p-values: all three metrics (conversion, revenue, time-on-page) come
+out under 0.05 even after Bonferroni correction. The treatment wins.
+""")
+
 tab_design, tab_analyze, tab_cuped = st.tabs(
     ["Sample-size design", "Experiment analysis", "CUPED reanalysis"]
 )
