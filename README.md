@@ -1,5 +1,7 @@
 # A/B Testing & Experimentation Workbench
 
+**[Live demo](https://ab-testing-experimentation.streamlit.app)** — runs in your browser, no install required.
+
 End-to-end **online experimentation analysis** for an e-commerce checkout
 flow A/B test. The bundled synthetic dataset (10,000 users per arm)
 simulates a control vs. simplified-cart treatment with a ~10% conversion
