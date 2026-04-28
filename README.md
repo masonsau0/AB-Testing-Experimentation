@@ -1,6 +1,6 @@
 # A/B Testing & Experimentation Workbench
 
-**[Live demo](https://mason-ab-testing.streamlit.app/)** : runs in the browser, no install required.
+**[Live demo](https://mason-ab-testing.streamlit.app/)**: runs in the browser, no install required.
 
 End-to-end **online experimentation analysis** for an e-commerce checkout
 flow A/B test. The bundled synthetic dataset (10,000 users per arm)
@@ -15,20 +15,20 @@ The workbench covers the full lifecycle of a real experiment:
 | **Validity checks** | Did the randomisation work? (Sample-ratio mismatch / SRM) |
 | **Primary analysis** | Did conversion rate move? (two-proportion z-test) |
 | **Secondary analyses** | Did revenue and time-on-page move? (Welch's t-test) |
-| **Multiple-comparison correction** | We tested 3 metrics : what's the family-wise error rate? |
+| **Multiple-comparison correction** | We tested 3 metrics: what's the family-wise error rate? |
 | **Bootstrap CIs** | Sanity-check the closed-form CI on the primary metric |
 | **CUPED variance reduction** | Use a pre-experiment covariate to cut variance |
-| **Decision** | Ship, hold, or kill : with caveats for the rollout doc |
+| **Decision** | Ship, hold, or kill: with caveats for the rollout doc |
 
 Three layers of access:
 
-1. A **statistics library** (`ab_testing.py`) : power analysis, hypothesis
+1. A **statistics library** (`ab_testing.py`): power analysis, hypothesis
    tests, multiple-comparison correction, SRM check, CUPED. Self-contained
    functions that compose into a notebook or dashboard.
-2. A **walkthrough notebook** (`experiment_analysis.ipynb`) : narrative +
+2. A **walkthrough notebook** (`experiment_analysis.ipynb`): narrative +
    results for the bundled dataset, in the order a real PM / DS would
    present them.
-3. An **interactive Streamlit dashboard** (`ab_testing_app.py`) : three
+3. An **interactive Streamlit dashboard** (`ab_testing_app.py`): three
    tabs: pre-experiment design (sliders for baseline / MDE / α / power),
    live analysis (upload your own CSV), and CUPED reanalysis.
 
@@ -86,7 +86,7 @@ jupyter notebook experiment_analysis.ipynb
 A/B testing is the workhorse of product-decision-making, but most
 practitioners stop at "p < 0.05 → ship." Real experimentation is a
 pipeline of **design → validity → analysis → correction → reanalysis →
-decision** : and the failure modes (peeking, SRM, multiple-comparison
+decision**: and the failure modes (peeking, SRM, multiple-comparison
 inflation, biased estimators) all live in the steps that get skipped.
 This project demonstrates each of them on real-shaped data.
 
